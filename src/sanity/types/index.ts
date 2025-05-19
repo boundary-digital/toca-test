@@ -50,7 +50,18 @@ type BaseSection = {
 
 type HomeHeroSection = BaseSection & {
   _type: 'homeHeroSection';
+  title: string;
   backgroundImage: SanityImage;
 };
 
-export type Section = HomeHeroSection;
+export type ReusableSection = BaseSection & {
+  _type: 'reusableSection';
+  title: string;
+  eyebrow: string;
+  buttonText: string;
+  buttonCta: string;
+  width: 'full' | 'half' | 'third';
+  backgroundImage?: SanityImage;
+};
+
+export type Section = HomeHeroSection | ReusableSection;

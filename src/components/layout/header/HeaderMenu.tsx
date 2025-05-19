@@ -27,7 +27,7 @@ export default function HeaderMenu({ data }: { data: HeaderNav }) {
             </div>
             <div className='flex flex-1 flex-col justify-end pb-10 md:pb-14'>
               <div className='grid grid-cols-2 gap-x-7 gap-y-5 md:flex md:flex-row md:justify-center md:gap-7'>
-                {secondaryNav.map((item, index) => (
+                {!!secondaryNav?.length && secondaryNav.map((item, index) => (
                   <Link
                     key={index}
                     target={item.isNewWindow ? '_blank' : undefined}

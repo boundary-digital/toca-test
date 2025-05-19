@@ -21,7 +21,7 @@ export default async function Header() {
           <div className='flex h-full items-center justify-between'>
             <div className='order-last flex flex-1 justify-end md:order-none md:justify-start'>
               <HeaderClientWrap>
-                <HeaderMenu data={header_data} />
+                {!!header_data && <HeaderMenu data={header_data} />}
               </HeaderClientWrap>
             </div>
             <div className='order-first md:order-none'>

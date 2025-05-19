@@ -6,6 +6,11 @@ const homeHeroSection = defineType({
   type: 'object',
   fields: [
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string'
+    },
+    {
       name: 'backgroundImage',
       type: 'image',
       title: 'Background Image',
