@@ -45,24 +45,24 @@ export const colors = {
   },
 } as const;
 
-// Button Styles
+// Button Styles - Based on Figma Design
 export const buttonStyles = {
   primary: {
-    base: 'inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200',
-    default: 'bg-rose-gold text-dark-gray hover:opacity-90',
-    hover: 'hover:shadow-lg',
+    base: 'inline-flex items-center justify-center px-5 py-[13px] text-[14px] font-medium transition-all duration-200 uppercase tracking-[0.1em] rounded-full',
+    default: 'bg-rose-gold text-white border border-transparent',
+    hover: 'hover:bg-opacity-90',
     focus: 'focus:outline-none focus:ring-2 focus:ring-rose-gold focus:ring-offset-2 focus:ring-offset-dark-gray',
   },
   secondary: {
-    base: 'inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200',
-    default: 'bg-transparent text-rose-gold border border-rose-gold',
-    hover: 'hover:bg-rose-gold hover:text-dark-gray',
-    focus: 'focus:outline-none focus:ring-2 focus:ring-rose-gold focus:ring-offset-2 focus:ring-offset-dark-gray',
+    base: 'inline-flex items-center justify-center px-5 py-[13px] text-[14px] font-medium transition-all duration-200 uppercase tracking-[0.1em] rounded-full',
+    default: 'bg-transparent text-white border border-white/50 backdrop-blur-[20px]',
+    hover: 'hover:bg-white/10',
+    focus: 'focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-dark-gray',
   },
   tertiary: {
-    base: 'inline-flex items-center justify-center text-sm font-medium transition-all duration-200',
-    default: 'text-rose-gold underline underline-offset-4',
-    hover: 'hover:text-sea-mist hover:no-underline',
+    base: 'inline-flex items-center justify-center text-[18px] font-medium transition-all duration-200',
+    default: 'text-rose-gold bg-transparent border-b-[0.5px] border-rose-gold',
+    hover: 'hover:opacity-70',
     focus: 'focus:outline-none focus:ring-2 focus:ring-rose-gold focus:ring-offset-2 focus:ring-offset-dark-gray',
   },
 } as const;

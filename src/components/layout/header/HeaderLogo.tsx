@@ -144,9 +144,9 @@ function LogoLetters({ className = '' }: { className?: string }) {
 
 export default function HeaderLogo() {
   return (
-    <div className='flex items-center justify-center gap-[0.67rem] md:flex-col md:gap-[0.82rem]'>
-      <LogoSeal className='w-6 md:w-16' />
-      <LogoLetters className='w-48 md:w-[19.2rem]' />
+    <div className='flex items-center justify-center'>
+      <LogoSeal className='hidden md:block md:h-[100px] md:w-[100px]' />
+      <LogoLetters className='h-[24px] w-[196.75px] md:hidden' />
     </div>
   );
 }
