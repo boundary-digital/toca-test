@@ -16,12 +16,15 @@ export type HeaderNav = Navigation & {
 export type SanityLink = {
   _type: string;
   title?: string;
-  href?: string;
-  linkType?: string;
-  externalLink?: string;
-  internalLink?: {
+  isExternal?: boolean;
+  isNewWindow?: boolean;
+  external?: string;
+  internal?: {
     _ref: string;
     _type: string;
+    slug?: {
+      current: string;
+    };
   };
 };
 
@@ -75,6 +78,11 @@ type InstagramSection = BaseSection & {
   instagramHandle: string;
   instagramLink: string;
   images: SanityImage[];
+  backgroundVideo?: {
+    asset: {
+      url: string;
+    };
+  };
 };
 
 export type ContentCard = {

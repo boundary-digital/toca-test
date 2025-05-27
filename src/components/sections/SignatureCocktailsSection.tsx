@@ -14,6 +14,7 @@ interface SignatureCocktailsSectionProps {
   heading: string;
   subheading: string;
   cocktails: Cocktail[];
+  backgroundImage?: SanityImageSource;
   link?: {
     _type: string;
     title?: string;
@@ -31,12 +32,27 @@ export default function SignatureCocktailsSection({
   heading,
   subheading,
   cocktails,
+  backgroundImage,
   link,
 }: SignatureCocktailsSectionProps) {
   const linkHref = link?.linkType === 'external' ? link.externalLink : link?.href || '#';
 
   return (
-    <section className='bg-dark-gray relative w-full py-[100px] md:py-[150px]'>
+    <section className='bg-dark-gray relative mt-[88px] w-[100dvw] py-[100px] md:mx-[-2.5rem] md:py-[150px]'>
+      {/* Background image with overlay effect */}
+      {backgroundImage && (
+        <div
+          className='absolute inset-0 opacity-50 mix-blend-overlay'
+          style={{
+            backgroundImage: `url(${urlFor(backgroundImage).url()})`,
+            backgroundColor: 'lightgray',
+            backgroundPosition: '50% 50%',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+      )}
+
       {/* Background texture overlay */}
       <div className='absolute inset-0 opacity-50 mix-blend-overlay'>
         <div className='h-full w-full bg-[url("/noise.png")] bg-repeat' />
@@ -76,7 +92,7 @@ export default function SignatureCocktailsSection({
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
               </div>
-              <h3 className='text-rose-gold font-karl mt-[35px] text-center text-[64px] leading-[1] md:text-[80px]'>
+              <h3 className='text-rose-gold font-karl relative -translate-y-1/2 text-center text-[64px] leading-[1] md:text-[80px]'>
                 {cocktail.name}
               </h3>
             </div>
@@ -84,7 +100,7 @@ export default function SignatureCocktailsSection({
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
+      <div className='from-dark-gray absolute top-0 right-0 left-0 h-[200px] bg-gradient-to-b to-transparent' />
       <div className='from-dark-gray absolute right-0 bottom-0 left-0 h-[200px] bg-gradient-to-t to-transparent' />
     </section>
   );

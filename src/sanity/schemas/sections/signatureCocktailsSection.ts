@@ -6,6 +6,15 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'backgroundImage',
+      title: 'Background Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      description: 'Background image with overlay effect',
+    }),
+    defineField({
       name: 'heading',
       title: 'Heading',
       type: 'string',

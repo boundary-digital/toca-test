@@ -109,29 +109,26 @@ export default function ContentCard({
 
       {/* Content */}
       <div className='relative flex h-full flex-col items-center justify-between px-5 py-12 md:px-0 md:py-20'>
-        <h2 className='text-rose-gold font-sans text-[13px] font-medium tracking-[0.15em] uppercase md:text-[15px]'>
-          {heading}
-        </h2>
+        <div className='flex flex-col items-center gap-4 md:gap-[30px]'>
+          <h2 className='text-rose-gold font-sans text-[13px] font-medium tracking-[0.15em] uppercase md:text-[15px]'>
+            {heading}
+          </h2>
 
-        <div className='flex flex-col items-center gap-8 md:gap-10'>
           <p
             className={cn(
-              'text-center font-serif leading-[1.1] tracking-[-0.015em] text-white',
+              'text-center font-serif leading-[1.1] tracking-[-0.6px] text-white',
               config.titleSize,
               config.titleMaxWidth
             )}
           >
             {title}
           </p>
-
-          {link && (
-            <Link href={linkHref || '#'}>
-              <Button variant='secondary'>{link.title || config.defaultLinkText}</Button>
-            </Link>
-          )}
         </div>
-
-        <div className='h-[13px] md:h-[15px]' />
+        {link && (
+          <Link href={linkHref || '#'}>
+            <Button variant='secondary'>{link.title || config.defaultLinkText}</Button>
+          </Link>
+        )}
       </div>
     </section>
   );

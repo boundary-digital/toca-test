@@ -12,6 +12,11 @@ interface InstagramSectionProps {
   instagramHandle: string;
   instagramLink: string;
   images: SanityImageSource[];
+  backgroundVideo?: {
+    asset: {
+      url: string;
+    };
+  };
 }
 
 export default function InstagramSection({
@@ -20,9 +25,27 @@ export default function InstagramSection({
   instagramHandle,
   instagramLink,
   images,
+  backgroundVideo,
 }: InstagramSectionProps) {
   return (
-    <section className='bg-dark-gray relative w-full py-[100px] md:py-[150px]'>
+    <section className='bg-dark-gray relative w-[100dvw] overflow-hidden py-[100px] md:mx-[-2.5rem] md:py-[150px]'>
+      {/* Background video */}
+      {backgroundVideo?.asset?.url && (
+        <div className='absolute inset-0'>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className='absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity'
+          >
+            <source src={backgroundVideo.asset.url} type='video/mp4' />
+          </video>
+          {/* Gradient overlay */}
+          <div className='absolute inset-0 bg-gradient-to-b from-black/40 to-black/40' />
+        </div>
+      )}
+
       {/* Background texture overlay */}
       <div className='absolute inset-0 opacity-50 mix-blend-overlay'>
         <div className='h-full w-full bg-[url("/noise.png")] bg-repeat' />
@@ -48,18 +71,35 @@ export default function InstagramSection({
       </div>
 
       {/* Instagram Grid */}
-      <div className='relative z-10 mx-auto max-w-[1440px] px-5 md:px-0'>
-        <div className='mb-[60px] grid grid-cols-3 gap-0 md:mb-[80px] md:grid-cols-9'>
-          {images.slice(0, 9).map((image, index) => (
-            <div key={index} className='group relative aspect-square overflow-hidden'>
-              <img
-                src={urlFor(image).width(400).height(400).url()}
-                alt={`Instagram post ${index + 1}`}
-                className='h-full w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75'
-              />
-              <div className='absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
-            </div>
-          ))}
+      <div className='relative z-10 mx-auto mb-[60px] w-full overflow-hidden md:mb-[80px]'>
+        <div className='animate-scroll flex gap-4'>
+          {/* Duplicate images for seamless loop */}
+          {[...images.slice(0, 9), ...images.slice(0, 9)].map((image, index) => {
+            // Generate deterministic size between 250-360px based on index
+            // This ensures the same size is generated on both server and client
+            const sizeVariation = [
+              280, 310, 340, 290, 320, 350, 270, 300, 330, 260, 340, 310, 290, 320, 280, 350, 300, 270,
+            ];
+            const size = sizeVariation[index % sizeVariation.length];
+
+            return (
+              <div
+                key={index}
+                className='group relative flex-shrink-0 overflow-hidden rounded-2xl shadow-[0px_20px_60px_0px_rgba(0,0,0,0.30)]'
+                style={{ width: `${size}px`, height: `${size}px` }}
+              >
+                <img
+                  src={urlFor(image)
+                    .width(size * 2)
+                    .height(size * 2)
+                    .url()}
+                  alt={`Instagram post ${index + 1}`}
+                  className='h-full w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75'
+                />
+                <div className='absolute inset-0 rounded-2xl bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

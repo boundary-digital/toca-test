@@ -31,6 +31,25 @@
 @layer components {
 }
 
+@layer utilities {
+  @keyframes scroll-horizontal {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll-horizontal 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+}
+
 body {
   @apply bg-background text-foreground font-sans;
 }

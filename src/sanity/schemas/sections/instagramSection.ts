@@ -44,6 +44,15 @@ export default defineType({
       ],
       validation: (Rule) => Rule.required().min(6).max(9),
     }),
+    defineField({
+      name: 'backgroundVideo',
+      title: 'Background Video',
+      type: 'file',
+      description: 'Upload a video file for the section background (MP4 recommended)',
+      options: {
+        accept: 'video/*',
+      },
+    }),
   ],
   preview: {
     select: {

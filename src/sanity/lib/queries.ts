@@ -11,7 +11,16 @@ export const ROUTE_QUERY = defineQuery(`*[_type == "route" && slug.current == $s
       ...,
       sections[]{
         _type,
-        ...
+        ...,
+        _type == "instagramSection" => {
+          ...,
+          backgroundVideo{
+            ...,
+            asset->{
+              url
+            }
+          }
+        }
       }
     }
   }`);
