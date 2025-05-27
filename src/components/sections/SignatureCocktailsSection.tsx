@@ -69,9 +69,9 @@ export default function SignatureCocktailsSection({
       )}
 
       <div className='relative z-10 mx-auto max-w-[1500px] px-5 md:px-10'>
-        <div className='mb-[80px] grid grid-cols-2 gap-x-[20px] gap-y-[40px] md:mb-[100px] md:grid-cols-4 md:gap-x-[20px] md:gap-y-0'>
+        <ul className='mb-[80px] grid grid-cols-2 gap-x-[20px] gap-y-[40px] md:mb-[100px] md:grid-cols-4 md:gap-x-[20px] md:gap-y-0'>
           {cocktails.map((cocktail, index) => (
-            <div key={index} className='group relative'>
+            <li key={index} className='group relative list-none'>
               <div className='relative aspect-[300/400] overflow-hidden rounded-[16px] shadow-[0px_20px_60px_rgba(0,0,0,0.3)] md:aspect-[360/480]'>
                 <img
                   src={urlFor(cocktail.image).width(360).height(480).url()}
@@ -83,9 +83,9 @@ export default function SignatureCocktailsSection({
               <h3 className='text-rose-gold font-karl relative -translate-y-1/2 text-center text-[64px] leading-[1] md:text-[80px]'>
                 {cocktail.name}
               </h3>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       <div className='from-dark-gray absolute top-0 right-0 left-0 h-[200px] bg-gradient-to-b to-transparent' />

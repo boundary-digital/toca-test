@@ -85,7 +85,7 @@ export default function InstagramSection({
 
       <div className='absolute right-0 bottom-0 left-0 z-10'>
         <div className='relative h-[400px] md:h-[500px]'>
-          <div className='absolute inset-0 flex items-end justify-center gap-4 overflow-x-auto overflow-y-hidden px-8 md:gap-6 md:overflow-visible'>
+          <ul className='absolute inset-0 flex items-end justify-center gap-4 overflow-x-auto overflow-y-hidden px-8 md:gap-6 md:overflow-visible'>
             {images.slice(0, 7).map((image, index) => {
               const verticalOffsets = [60, 100, 40, 0, 40, 100, 60];
               const size = 260;
@@ -93,9 +93,9 @@ export default function InstagramSection({
               const translateY = verticalOffsets[index];
 
               return (
-                <div
+                <li
                   key={index}
-                  className='group relative flex-shrink-0 transition-all duration-500 hover:z-30'
+                  className='group relative flex-shrink-0 list-none transition-all duration-500 hover:z-30'
                   style={{
                     transform: `translateY(${translateY}px)`,
                     width: `${size}px`,
@@ -113,10 +113,10 @@ export default function InstagramSection({
                     />
                     <div className='absolute inset-0 rounded-2xl bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
                   </div>
-                </div>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
       <div className='from-dark-gray absolute top-0 right-0 left-0 h-[268px] bg-gradient-to-b to-transparent' />

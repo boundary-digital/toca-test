@@ -40,25 +40,25 @@ export default function HomeHeroSection({ backgroundImage }: { backgroundImage: 
       <div className='to-dark-gray absolute inset-0 bg-gradient-to-b from-transparent' />
 
       <div className='absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 text-center'>
-        <div className='flex flex-col items-center gap-0'>
-          <div className='flex w-full items-center gap-[10px] md:gap-[2.5px]'>
-            <h1 className='font-serif text-[48.85px] leading-[1em] tracking-[0.1em] text-white uppercase md:text-[140px]'>
+        <h1 className='flex flex-col items-center gap-0'>
+          <span className='flex w-full items-center gap-[10px] md:gap-[2.5px]'>
+            <span className='font-serif text-[48.85px] leading-[1em] tracking-[0.1em] text-white uppercase md:text-[140px]'>
               Modern
-            </h1>
+            </span>
             <SectionDivider />
-          </div>
+          </span>
 
-          <div className='flex w-full items-center gap-[10px] md:gap-[2.5px]'>
+          <span className='flex w-full items-center gap-[10px] md:gap-[2.5px]'>
             <SectionDivider />
-            <h1 className='font-serif text-[48.85px] leading-[1em] tracking-[0.1em] text-white uppercase md:text-[140px]'>
+            <span className='font-serif text-[48.85px] leading-[1em] tracking-[0.1em] text-white uppercase md:text-[140px]'>
               Mexican
-            </h1>
-          </div>
+            </span>
+          </span>
 
-          <h1 className='font-serif text-[48.85px] leading-[1em] tracking-[0.1em] text-white uppercase md:text-[140px]'>
+          <span className='font-serif text-[48.85px] leading-[1em] tracking-[0.1em] text-white uppercase md:text-[140px]'>
             Steakhouse
-          </h1>
-        </div>
+          </span>
+        </h1>
       </div>
     </section>
   );

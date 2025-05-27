@@ -93,7 +93,7 @@ export default function ContentCard({
   const config = cardStyleConfig[cardStyle];
 
   return (
-    <section className={cn('relative w-full overflow-hidden rounded-2xl', config.height, className)}>
+    <article className={cn('relative w-full overflow-hidden rounded-2xl', config.height, className)}>
       <div className='absolute inset-0'>
         <img
           src={urlFor(backgroundImage).width(config.imageWidth).height(config.imageHeight).url()}
@@ -126,6 +126,6 @@ export default function ContentCard({
           </Button>
         )}
       </div>
-    </section>
+    </article>
   );
 }
