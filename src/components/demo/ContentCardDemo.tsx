@@ -2,9 +2,7 @@
 
 import ContentCardsSection from '../sections/ContentCardsSection';
 
-// Demo component showing all layout possibilities
 export default function ContentCardDemo() {
-  // Sample card data
   const sampleCards = {
     tocaTuesday: {
       heading: 'TOCA TUESDAY',
@@ -112,7 +110,6 @@ export default function ContentCardDemo() {
 
   return (
     <div className='space-y-20 py-12'>
-      {/* Demo 1: Single Column Layout */}
       <section>
         <h2 className='mb-8 text-center text-3xl font-bold'>Single Column Layout</h2>
         <ContentCardsSection
@@ -123,7 +120,6 @@ export default function ContentCardDemo() {
         />
       </section>
 
-      {/* Demo 2: Two Column Layout */}
       <section>
         <h2 className='mb-8 text-center text-3xl font-bold'>Two Column Layout</h2>
         <ContentCardsSection
@@ -134,7 +130,6 @@ export default function ContentCardDemo() {
         />
       </section>
 
-      {/* Demo 3: Three Column Layout (Locations) */}
       <section>
         <h2 className='mb-8 text-center text-3xl font-bold'>Three Column Layout (Locations)</h2>
         <ContentCardsSection
@@ -145,7 +140,6 @@ export default function ContentCardDemo() {
         />
       </section>
 
-      {/* Demo 4: Mixed Layout (1 + 2) */}
       <section>
         <h2 className='mb-8 text-center text-3xl font-bold'>Mixed Layout (1 + 2)</h2>
         <ContentCardsSection
@@ -156,7 +150,6 @@ export default function ContentCardDemo() {
         />
       </section>
 
-      {/* Demo 5: Four Column Layout with Compact Cards */}
       <section>
         <h2 className='mb-8 text-center text-3xl font-bold'>Four Column Layout (Compact)</h2>
         <ContentCardsSection
@@ -172,7 +165,6 @@ export default function ContentCardDemo() {
         />
       </section>
 
-      {/* Demo 6: With Section Title */}
       <section>
         <h2 className='mb-8 text-center text-3xl font-bold'>With Section Title</h2>
         <ContentCardsSection
@@ -184,7 +176,6 @@ export default function ContentCardDemo() {
         />
       </section>
 
-      {/* Demo 7: Different Spacing Options */}
       <section>
         <h2 className='mb-8 text-center text-3xl font-bold'>Spacing Variations</h2>
 
@@ -209,7 +200,6 @@ export default function ContentCardDemo() {
         </div>
       </section>
 
-      {/* Demo 8: Container Width Variations */}
       <section>
         <h2 className='mb-8 text-center text-3xl font-bold'>Container Width Variations</h2>
 

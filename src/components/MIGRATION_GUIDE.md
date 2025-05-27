@@ -140,12 +140,12 @@ Use the unified `contentCardsSection`:
       _type: 'contentCard',
       heading: 'TOCA TUESDAY',
       title: 'Your title text here',
-      backgroundImage: { /* image object */ },
-      link: { /* sanityLink object */ },
-      cardStyle: 'standard' // or 'compact' or 'location'
+      backgroundImage: { _type: 'image', asset: { _ref: 'image-ref' } },
+      link: { _type: 'link', title: 'Learn More', href: '/path' },
+      cardStyle: 'standard'
     }
   ],
-  layout: 'single', // or 'two-column', 'three-column', etc.
+  layout: 'single',
   spacing: 'normal',
   containerWidth: 'container'
 }

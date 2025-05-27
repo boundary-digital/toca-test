@@ -95,7 +95,6 @@ export default function ContentCard({
 
   return (
     <section className={cn('relative w-full overflow-hidden rounded-2xl', config.height, className)}>
-      {/* Background Image */}
       <div className='absolute inset-0'>
         <img
           src={urlFor(backgroundImage).width(config.imageWidth).height(config.imageHeight).url()}
@@ -104,10 +103,8 @@ export default function ContentCard({
         />
       </div>
 
-      {/* Gradient Overlays */}
       {config.gradients}
 
-      {/* Content */}
       <div className='relative flex h-full flex-col items-center justify-between px-5 py-12 md:px-0 md:py-20'>
         <div className='flex flex-col items-center gap-4 md:gap-[30px]'>
           <h2 className='text-rose-gold font-sans text-[13px] font-medium tracking-[0.15em] uppercase md:text-[15px]'>

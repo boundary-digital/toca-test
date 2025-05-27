@@ -59,7 +59,6 @@ export default function CardLayout({
         );
 
       case 'mixed-1-2':
-        // First card full width, rest in 2 columns
         return (
           <div className={cn('flex flex-col', spacingClasses[spacing])}>
             {childrenArray[0]}
@@ -72,7 +71,6 @@ export default function CardLayout({
         );
 
       case 'mixed-2-3':
-        // First 2 cards in 2 columns, rest in 3 columns
         return (
           <div className={cn('flex flex-col', spacingClasses[spacing])}>
             {childrenArray.length >= 2 && (

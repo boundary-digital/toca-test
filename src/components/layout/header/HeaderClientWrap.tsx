@@ -9,7 +9,6 @@ export default function HeaderClientWrap({ children }: { children: React.ReactNo
   const [, startTransition] = useTransition();
   const pathname = usePathname();
 
-  // Close menu when route changes
   useEffect(() => {
     startTransition(() => {
       setIsOpen(false);

@@ -1,13 +1,7 @@
-/**
- * Theme Configuration
- * Centralized theme values for the entire application
- */
-
 import { borderRadius, colors, shadows, spacing, transitions, zIndex } from './constants';
 
 export const theme = {
   colors: {
-    // Map color names to CSS variable names for Tailwind
     primary: colors.roseGold.hex,
     secondary: colors.seaMist.hex,
     accent: colors.ketchup.hex,
@@ -17,7 +11,6 @@ export const theme = {
     mutedForeground: colors.desertPalm.hex,
   },
 
-  // Breakpoints
   screens: {
     sm: '640px',
     md: '768px',
@@ -26,14 +19,12 @@ export const theme = {
     '2xl': '1536px',
   },
 
-  // Font families (matching CSS variables)
   fontFamily: {
     sans: 'var(--font-brandon-grotesque)',
     serif: 'var(--font-cormorant)',
     karl: 'var(--font-karl-geoff)',
   },
 
-  // Font sizes
   fontSize: {
     xs: ['0.75rem', { lineHeight: '1rem' }],
     sm: ['0.875rem', { lineHeight: '1.25rem' }],
@@ -50,7 +41,6 @@ export const theme = {
     '9xl': ['8rem', { lineHeight: '1.1' }],
   },
 
-  // Export other constants for use in components
   spacing,
   transitions,
   shadows,
@@ -58,15 +48,12 @@ export const theme = {
   zIndex,
 } as const;
 
-// Type for theme
 export type Theme = typeof theme;
 
-// Helper function to get color values
 export const getColor = (colorName: keyof typeof colors) => {
   return colors[colorName];
 };
 
-// Helper function to create color classes
 export const colorClasses = {
   text: {
     primary: 'text-rose-gold',

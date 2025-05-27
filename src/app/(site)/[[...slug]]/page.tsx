@@ -38,12 +38,10 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
       {route.page.sections?.map((section, index) => {
         const sectionType = section._type;
 
-        // Hero section - no container
         if (sectionType === 'homeHeroSection') {
           return <SectionRenderer key={index} section={section} />;
         }
 
-        // All other sections get standard container
         return (
           <div key={index} className='mx-auto px-2.5 md:px-10'>
             <SectionRenderer section={section} />

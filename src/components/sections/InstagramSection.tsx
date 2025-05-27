@@ -19,6 +19,18 @@ interface InstagramSectionProps {
   };
 }
 
+const SectionDivider = () => (
+  <div className='flex flex-col items-center justify-center px-8'>
+    <div className='relative h-[100px] w-[1px] bg-[#C5A288] md:h-[150px]'></div>
+    <svg xmlns='http://www.w3.org/2000/svg' width='7' height='9' viewBox='0 0 7 9' fill='none'>
+      <path
+        d='M6.6834 2.72862L3.8254 0.27891C3.63815 0.118415 3.36185 0.118415 3.17461 0.27891L0.316605 2.72862C0.133236 2.8858 0.0884199 3.15158 0.210111 3.36019L3.06811 8.25962C3.26105 8.59037 3.73895 8.59037 3.93189 8.25962L6.78989 3.36019C6.91158 3.15158 6.86677 2.8858 6.6834 2.72862Z'
+        fill='#C5A288'
+      />
+    </svg>
+  </div>
+);
+
 export default function InstagramSection({
   heading,
   subheading,
@@ -28,8 +40,7 @@ export default function InstagramSection({
   backgroundVideo,
 }: InstagramSectionProps) {
   return (
-    <section className='bg-dark-gray relative w-[100dvw] overflow-hidden py-[100px] md:mx-[-2.5rem] md:py-[150px]'>
-      {/* Background video */}
+    <section className='bg-dark-gray relative h-[720px] w-[100dvw] pt-[20px] pb-0 md:mx-[-2.5rem] md:pt-[50px]'>
       {backgroundVideo?.asset?.url && (
         <div className='absolute inset-0'>
           <video
@@ -41,17 +52,10 @@ export default function InstagramSection({
           >
             <source src={backgroundVideo.asset.url} type='video/mp4' />
           </video>
-          {/* Gradient overlay */}
           <div className='absolute inset-0 bg-gradient-to-b from-black/40 to-black/40' />
         </div>
       )}
 
-      {/* Background texture overlay */}
-      <div className='absolute inset-0 opacity-50 mix-blend-overlay'>
-        <div className='h-full w-full bg-[url("/noise.png")] bg-repeat' />
-      </div>
-
-      {/* Section Header */}
       <div className='relative z-10 mb-[27px] text-center md:mb-[45px]'>
         <h2 className='text-rose-gold mb-[29px] font-sans text-[13px] font-medium tracking-[0.15em] uppercase md:mb-[33px] md:text-[15px]'>
           {heading}
@@ -60,9 +64,8 @@ export default function InstagramSection({
           {subheading}
         </p>
       </div>
-      {/* Instagram Handle Button */}
 
-      <div className='relative z-10 mb-[60px] text-center md:mb-[80px]'>
+      <div className='relative z-10 mb-[50px] text-center md:mb-[80px]'>
         <Link href={instagramLink} target='_blank' rel='noopener noreferrer'>
           <Button variant='secondary' size='default' icon={<FaInstagram className='h-4 w-4' />} iconPosition='left'>
             {instagramHandle}
@@ -70,40 +73,49 @@ export default function InstagramSection({
         </Link>
       </div>
 
-      {/* Instagram Grid */}
-      <div className='relative z-10 mx-auto mb-[60px] w-full overflow-hidden md:mb-[80px]'>
-        <div className='animate-scroll flex gap-4'>
-          {/* Duplicate images for seamless loop */}
-          {[...images.slice(0, 9), ...images.slice(0, 9)].map((image, index) => {
-            // Generate deterministic size between 250-360px based on index
-            // This ensures the same size is generated on both server and client
-            const sizeVariation = [
-              280, 310, 340, 290, 320, 350, 270, 300, 330, 260, 340, 310, 290, 320, 280, 350, 300, 270,
-            ];
-            const size = sizeVariation[index % sizeVariation.length];
+      <div className='relative z-10 mb-[40px] flex flex-col items-center md:mb-[60px]'>
+        <img src='/symbol.svg' className='h-[40px]' alt='Symbol' />
+        <SectionDivider />
+      </div>
 
-            return (
-              <div
-                key={index}
-                className='group relative flex-shrink-0 overflow-hidden rounded-2xl shadow-[0px_20px_60px_0px_rgba(0,0,0,0.30)]'
-                style={{ width: `${size}px`, height: `${size}px` }}
-              >
-                <img
-                  src={urlFor(image)
-                    .width(size * 2)
-                    .height(size * 2)
-                    .url()}
-                  alt={`Instagram post ${index + 1}`}
-                  className='h-full w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-75'
-                />
-                <div className='absolute inset-0 rounded-2xl bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
-              </div>
-            );
-          })}
+      <div className='absolute right-0 bottom-0 left-0 z-10'>
+        <div className='relative h-[400px] md:h-[500px]'>
+          <div className='absolute inset-0 flex items-end justify-center gap-4 overflow-x-auto overflow-y-hidden px-8 md:gap-6 md:overflow-visible'>
+            {images.slice(0, 7).map((image, index) => {
+              const verticalOffsets = [60, 100, 40, 0, 40, 100, 60];
+              const size = 260;
+
+              const translateY = verticalOffsets[index];
+
+              return (
+                <div
+                  key={index}
+                  className='group relative flex-shrink-0 transition-all duration-500 hover:z-30'
+                  style={{
+                    transform: `translateY(${translateY}px)`,
+                    width: `${size}px`,
+                    height: `${size}px`,
+                  }}
+                >
+                  <div className='relative h-full w-full overflow-hidden rounded-2xl shadow-[0px_20px_60px_0px_rgba(0,0,0,0.50)]'>
+                    <img
+                      src={urlFor(image)
+                        .width(size * 2)
+                        .height(size * 2)
+                        .url()}
+                      alt={`Instagram post ${index + 1}`}
+                      className='h-full w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-90'
+                    />
+                    <div className='absolute inset-0 rounded-2xl bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
       <div className='from-dark-gray absolute top-0 right-0 left-0 h-[268px] bg-gradient-to-b to-transparent' />
-      <div className='from-dark-gray absolute right-0 bottom-0 left-0 h-[200px] bg-gradient-to-t to-transparent' />
+      <div className='from-dark-gray absolute right-0 bottom-0 left-0 h-[100px] bg-gradient-to-t to-transparent' />
     </section>
   );
 }

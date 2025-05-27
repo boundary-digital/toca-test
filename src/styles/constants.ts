@@ -1,11 +1,4 @@
-/**
- * Design System Constants
- * Based on the project's style guide
- */
-
-// Color Palette
 export const colors = {
-  // Primary Colors
   roseGold: {
     hex: '#c5a288',
     rgb: 'rgb(197, 162, 136)',
@@ -22,7 +15,6 @@ export const colors = {
     cmyk: 'cmyk(0, 0, 0, 0)',
   },
 
-  // Secondary Colors
   seaMist: {
     hex: '#d5c9a7',
     rgb: 'rgb(213, 201, 167)',
@@ -45,7 +37,6 @@ export const colors = {
   },
 } as const;
 
-// Button Styles - Based on Figma Design
 export const buttonStyles = {
   primary: {
     base: 'inline-flex items-center justify-center px-5 py-[13px] text-[14px] font-medium transition-all duration-200 uppercase tracking-[0.1em] rounded-full',
@@ -67,9 +58,7 @@ export const buttonStyles = {
   },
 } as const;
 
-// Typography
 export const typography = {
-  // Footer Links
   footerLinks: {
     base: 'text-foreground opacity-50 hover:opacity-100 transition-opacity duration-200',
     sections: {
@@ -77,42 +66,36 @@ export const typography = {
       link: 'block py-1 text-sm',
     },
   },
-  // Add more typography styles as needed
 } as const;
 
-// Spacing
 export const spacing = {
   button: {
-    paddingX: '1.5rem', // 24px
-    paddingY: '0.75rem', // 12px
+    paddingX: '1.5rem',
+    paddingY: '0.75rem',
   },
   section: {
-    paddingY: '4rem', // 64px
-    paddingYMobile: '2rem', // 32px
+    paddingY: '4rem',
+    paddingYMobile: '2rem',
   },
 } as const;
 
-// Transitions
 export const transitions = {
   default: 'transition-all duration-200 ease-in-out',
   slow: 'transition-all duration-300 ease-in-out',
   fast: 'transition-all duration-150 ease-in-out',
 } as const;
 
-// Shadows
 export const shadows = {
   button: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
   buttonHover: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
 } as const;
 
-// Border Radius
 export const borderRadius = {
-  button: '0.375rem', // 6px
-  card: '0.5rem', // 8px
+  button: '0.375rem',
+  card: '0.5rem',
   full: '9999px',
 } as const;
 
-// Z-Index Scale
 export const zIndex = {
   base: 0,
   dropdown: 10,

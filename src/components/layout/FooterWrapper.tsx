@@ -8,10 +8,12 @@ const footerQuery = groq`
     navigationLinks[] {
       _type,
       title,
-      href,
-      linkType,
-      externalLink,
-      internalLink
+      isExternal,
+      isNewWindow,
+      external,
+      internal->{
+        slug
+      }
     },
     newsletterTitle,
     newsletterDescription,
@@ -25,10 +27,12 @@ const footerQuery = groq`
     bottomLinks[] {
       _type,
       title,
-      href,
-      linkType,
-      externalLink,
-      internalLink
+      isExternal,
+      isNewWindow,
+      external,
+      internal->{
+        slug
+      }
     },
     logo
   }

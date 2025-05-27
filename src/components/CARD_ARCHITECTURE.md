@@ -98,18 +98,15 @@ A complete section component that renders multiple cards with a specified layout
 ### Multiple Cards with Layout (matching the design)
 
 ```tsx
-// Single column layout
 <CardLayout layout='single'>
   <ContentCard {...tocaTuesdayCard} />
 </CardLayout>
 
-// Two column layout
 <CardLayout layout='two-column'>
   <ContentCard {...ourStoryCard} />
   <ContentCard {...onTheMenuCard} />
 </CardLayout>
 
-// Three column layout (locations)
 <CardLayout layout='three-column'>
   <ContentCard {...scottsdaleCard} cardStyle='location' />
   <ContentCard {...lasVegasCard} cardStyle='location' />
@@ -129,7 +126,6 @@ A complete section component that renders multiple cards with a specified layout
       cardStyle: 'location',
       link: { title: 'Learn More', href: '/locations/scottsdale' },
     },
-    // ... more cards
   ]}
   layout='three-column'
   spacing='normal'
