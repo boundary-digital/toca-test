@@ -71,7 +71,7 @@ export default function Footer({
   return (
     <footer className='bg-dark-gray relative w-full'>
       {/* Newsletter Section */}
-      <div className='border-t border-white/10 px-5 py-[32px] md:px-10 md:py-[40px]'>
+      <div className='px-5 py-[32px] md:px-10 md:py-[40px]'>
         <div className='mx-auto max-w-[1440px]'>
           <div className='flex flex-col gap-6 md:gap-0'>
             {/* Newsletter Text */}

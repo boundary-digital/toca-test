@@ -102,6 +102,8 @@ export default function InstagramSection({
           })}
         </div>
       </div>
+      <div className='from-dark-gray absolute top-0 right-0 left-0 h-[268px] bg-gradient-to-b to-transparent' />
+      <div className='from-dark-gray absolute right-0 bottom-0 left-0 h-[200px] bg-gradient-to-t to-transparent' />
     </section>
   );
 }
