@@ -1,13 +1,14 @@
 import { cn } from '@/libs/functions';
-import { type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { type AnchorHTMLAttributes, type ReactNode } from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: 'primary' | 'secondary' | 'tertiary';
   size?: 'default' | 'small';
   children: ReactNode;
   className?: string;
   icon?: ReactNode;
   iconPosition?: 'left' | 'right';
+  href?: string;
 }
 
 export default function Button({
@@ -20,7 +21,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center font-sans font-medium transition-all duration-200 uppercase tracking-[0.1em] rounded-full';
+    'inline-flex items-center justify-center font-sans font-medium transition-all duration-200 uppercase tracking-[0.1em] rounded-full cursor-pointer';
 
   const sizeStyles = {
     default: 'px-5 py-[13px] text-[14px] leading-[1em] min-h-[40px]',
@@ -49,7 +50,7 @@ export default function Button({
   const isIconButton = icon && !children;
 
   return (
-    <button
+    <a
       className={cn(
         baseStyles,
         variant !== 'tertiary' && sizeStyles[size],
@@ -65,6 +66,6 @@ export default function Button({
       {children}
       {icon && iconPosition === 'right' && !isIconButton && <span className='ml-2'>{icon}</span>}
       {isIconButton && icon}
-    </button>
+    </a>
   );
 }

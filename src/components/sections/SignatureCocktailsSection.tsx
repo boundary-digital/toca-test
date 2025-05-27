@@ -2,7 +2,6 @@
 
 import urlFor from '@/sanity/lib/urlFor';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import Link from 'next/link';
 import Button from '../ui/Button';
 
 interface Cocktail {
@@ -63,11 +62,9 @@ export default function SignatureCocktailsSection({
 
       {link && (
         <div className='relative z-10 mb-[66px] text-center md:mb-[80px]'>
-          <Link href={linkHref || '#'}>
-            <Button variant='secondary' size='default'>
-              {link.title || 'LEARN MORE'}
-            </Button>
-          </Link>
+          <Button href={linkHref || '#'} variant='secondary' size='default'>
+            {link.title || 'LEARN MORE'}
+          </Button>
         </div>
       )}
 

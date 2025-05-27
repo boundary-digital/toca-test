@@ -2,7 +2,6 @@
 
 import urlFor from '@/sanity/lib/urlFor';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import Link from 'next/link';
 import { FaInstagram } from 'react-icons/fa';
 import Button from '../ui/Button';
 
@@ -66,11 +65,17 @@ export default function InstagramSection({
       </div>
 
       <div className='relative z-10 mb-[50px] text-center md:mb-[80px]'>
-        <Link href={instagramLink} target='_blank' rel='noopener noreferrer'>
-          <Button variant='secondary' size='default' icon={<FaInstagram className='h-4 w-4' />} iconPosition='left'>
-            {instagramHandle}
-          </Button>
-        </Link>
+        <Button
+          href={instagramLink}
+          target='_blank'
+          rel='noopener noreferrer'
+          variant='secondary'
+          size='default'
+          icon={<FaInstagram className='h-4 w-4' />}
+          iconPosition='left'
+        >
+          {instagramHandle}
+        </Button>
       </div>
 
       <div className='relative z-10 mb-[40px] flex flex-col items-center md:mb-[60px]'>

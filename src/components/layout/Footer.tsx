@@ -256,12 +256,12 @@ export default function Footer({
                 />
               </div>
 
-              <button
-                type='submit'
-                className='flex h-10 w-full items-center justify-center border border-white px-5 font-sans text-[13px] font-medium tracking-[0.1em] text-white uppercase transition-all hover:bg-white hover:text-black md:w-auto'
+              <a
+                onClick={handleSubmit}
+                className='flex h-10 w-full cursor-pointer items-center justify-center border border-white px-5 font-sans text-[13px] font-medium tracking-[0.1em] text-white uppercase transition-all hover:bg-white hover:text-black md:w-auto'
               >
                 {newsletterButtonText}
-              </button>
+              </a>
             </form>
           </div>
         </div>

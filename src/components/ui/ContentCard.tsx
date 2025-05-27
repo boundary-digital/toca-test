@@ -3,7 +3,6 @@
 import { cn } from '@/libs/functions';
 import urlFor from '@/sanity/lib/urlFor';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import Link from 'next/link';
 import Button from './Button';
 
 export type CardStyle = 'standard' | 'compact' | 'location';
@@ -122,9 +121,9 @@ export default function ContentCard({
           </p>
         </div>
         {link && (
-          <Link href={linkHref || '#'}>
-            <Button variant='secondary'>{link.title || config.defaultLinkText}</Button>
-          </Link>
+          <Button href={linkHref || '#'} variant='secondary'>
+            {link.title || config.defaultLinkText}
+          </Button>
         )}
       </div>
     </section>
