@@ -1,19 +1,23 @@
-import type { Page } from '@/sanity/types';
+import type { Section } from '@/sanity/types';
+import ContentCardsSection from '../sections/ContentCardsSection';
 import HomeHeroSection from '../sections/HomeHeroSection';
+import InstagramSection from '../sections/InstagramSection';
+import SignatureCocktailsSection from '../sections/SignatureCocktailsSection';
 
-const sections = {
-  homeHeroSection: HomeHeroSection,
-};
-
-export function SectionRenderer({ section }: { section: Page['sections'][number] }) {
-  const { _type } = section;
-
-  const SectionComponent = sections[_type];
-
-  if (!SectionComponent) {
-    console.warn(`No component found for section type: ${_type}`);
-    return null;
+export function SectionRenderer({ section }: { section: Section }) {
+  switch (section._type) {
+    case 'homeHeroSection':
+      return <HomeHeroSection {...section} />;
+    case 'signatureCocktailsSection':
+      return <SignatureCocktailsSection {...section} />;
+    case 'instagramSection':
+      return <InstagramSection {...section} />;
+    case 'contentCardsSection':
+      return <ContentCardsSection {...section} />;
+    default: {
+      const exhaustiveCheck: never = section;
+      console.warn(`No component found for section type: ${(exhaustiveCheck as Section)._type}`);
+      return null;
+    }
   }
-
-  return <SectionComponent {...section} />;
 }

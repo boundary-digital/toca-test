@@ -9,7 +9,6 @@ export default function HeaderClientWrap({ children }: { children: React.ReactNo
   const [, startTransition] = useTransition();
   const pathname = usePathname();
 
-  // Close menu when route changes
   useEffect(() => {
     startTransition(() => {
       setIsOpen(false);
@@ -24,11 +23,13 @@ export default function HeaderClientWrap({ children }: { children: React.ReactNo
 
   return (
     <div>
-      <button
+      <a
         className='relative z-30 flex h-4 w-4 cursor-pointer flex-col justify-center md:h-[3.15rem] md:w-[3.15rem]'
         onClick={handleToggleMenu}
         aria-expanded={isOpen}
         aria-label='Toggle menu'
+        role='button'
+        tabIndex={0}
       >
         <div
           className={cn(
@@ -48,7 +49,7 @@ export default function HeaderClientWrap({ children }: { children: React.ReactNo
             isOpen ? 'translate-y-0 -rotate-45' : 'translate-y-[5px] md:translate-y-[7px]'
           )}
         />
-      </button>
+      </a>
 
       <div
         className={cn(

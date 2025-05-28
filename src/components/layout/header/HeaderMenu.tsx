@@ -13,31 +13,33 @@ export default function HeaderMenu({ data }: { data: HeaderNav }) {
         <Container className='h-full'>
           <div className='flex h-full flex-col'>
             <div className='flex-1 pt-10 md:pt-14' />
-            <div className='flex flex-col items-center justify-center gap-8 md:gap-12'>
+            <ul className='flex flex-col items-center justify-center gap-8 md:gap-12'>
               {mainNav.map((item, index) => (
-                <Link
-                  key={index}
-                  target={item.isNewWindow ? '_blank' : undefined}
-                  href={extractUrl(item)}
-                  className='text-center font-serif text-4xl leading-none tracking-widest uppercase md:text-[4rem]'
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-            <div className='flex flex-1 flex-col justify-end pb-10 md:pb-14'>
-              <div className='grid grid-cols-2 gap-x-7 gap-y-5 md:flex md:flex-row md:justify-center md:gap-7'>
-                {secondaryNav.map((item, index) => (
+                <li key={index}>
                   <Link
-                    key={index}
                     target={item.isNewWindow ? '_blank' : undefined}
                     href={extractUrl(item)}
-                    className='text-sm font-medium tracking-widest uppercase'
+                    className='text-center font-serif text-4xl leading-none tracking-widest uppercase md:text-[4rem]'
                   >
                     {item.title}
                   </Link>
+                </li>
+              ))}
+            </ul>
+            <div className='flex flex-1 flex-col justify-end pb-10 md:pb-14'>
+              <ul className='grid grid-cols-2 gap-x-7 gap-y-5 md:flex md:flex-row md:justify-center md:gap-7'>
+                {secondaryNav.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      target={item.isNewWindow ? '_blank' : undefined}
+                      href={extractUrl(item)}
+                      className='text-sm font-medium tracking-widest uppercase'
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </Container>

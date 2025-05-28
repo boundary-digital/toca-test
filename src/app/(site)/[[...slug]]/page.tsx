@@ -34,8 +34,20 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
   }
 
   return (
-    <main>
-      <>{route.page.sections?.map((section, index) => <SectionRenderer key={index} section={section} />)}</>
-    </main>
+    <>
+      {route.page.sections?.map((section, index) => {
+        const sectionType = section._type;
+
+        if (sectionType === 'homeHeroSection') {
+          return <SectionRenderer key={index} section={section} />;
+        }
+
+        return (
+          <div key={index} className='mx-auto px-2.5 md:px-10'>
+            <SectionRenderer section={section} />
+          </div>
+        );
+      })}
+    </>
   );
 }
