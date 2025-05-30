@@ -49,8 +49,15 @@ type BaseSection = {
 };
 
 type HomeHeroSection = BaseSection & {
-  _type: 'homeHeroSection';
-  backgroundImage: SanityImage;
-};
+  _type: 'homeHeroSection'
+  backgroundImage: SanityImage
+  titleLines: TitleLine[]
+}
+
+export type TitleLine = {
+  text: string
+  alignment: 'left' | 'right'
+  divider: 'none' | 'before' | 'after'
+}
 
 export type Section = HomeHeroSection;

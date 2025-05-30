@@ -27,7 +27,7 @@ export function extractUrl(sanityLink: SanityLink): string {
     return sanityLink.external || '#';
   }
 
-  if (sanityLink.internal) {
+  if (sanityLink.internal && sanityLink.internal.slug) {
     return sanityLink.internal.slug.current;
   }
 
