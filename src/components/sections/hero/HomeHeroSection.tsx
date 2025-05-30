@@ -20,8 +20,7 @@ export default function HomeHeroSection({
 }: HomeHeroSectionProps) {
   return (
     <section className="relative mb-[242px] h-[840px] w-full overflow-hidden overflow-visible md:mb-[300px] md:h-[900px]">
-      <SanityImageBlock priority image={backgroundImage} fill className="object-cover" />
-
+      <SanityImageBlock priority image={backgroundImage} fill className="relative object-cover" />
       <GradientOverlay />
 
       <HeroTitle

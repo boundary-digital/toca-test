@@ -21,24 +21,6 @@ export default function HeroTitle({ titleLines, className = '' }: HeroTitleProps
     maxSize: 140
   })
 
-  // if (!titleLines || titleLines.length === 0) {
-  //   const defaultTitle = 'MODERN MEXICAN STEAKHOUSE'
-  //   const words = defaultTitle.split(' ')
-
-  //   return (
-  //     <h1
-  //       ref={titleRef}
-  //       className={`uppercase font-serif leading-none tracking-[0.1em] ${className}`}
-  //     >
-  //       {words.map((word, i) => (
-  //         <div key={i} className={i % 2 === 0 ? 'text-left' : 'text-right'}>
-  //           {word}
-  //         </div>
-  //       ))}
-  //     </h1>
-  //   )
-  // }
-
   return (
     <h1
       ref={titleRef}

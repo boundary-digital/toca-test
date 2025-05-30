@@ -1,7 +1,7 @@
-import Container from '@/components/layout/Container';
-import SanityImageBlock from '@/components/utility/SanityImageBlock';
-import { extractUrl } from '@/libs/functions';
-import type { SanityImage, SanityLink } from '@/sanity/types';
+import Container from '@/components/layout/Container'
+import SanityImageBlock from '@/components/utility/SanityImageBlock'
+import { extractUrl } from '@/libs/functions'
+import type { SanityImage, SanityLink } from '@/sanity/types'
 import Button from '../ui/Button'
 
 interface HomeSectionProps {
@@ -39,8 +39,12 @@ export default function HomeSection({
       )}
       <Container className="relative z-10 flex min-h-screen flex-col items-center justify-center py-20">
         <article className="max-w-3xl text-center">
-          <h2 className="mb-6 font-serif text-2xl uppercase tracking-wider md:text-3xl">{title}</h2>
-          <p className="mb-8 text-4xl md:text-5xl">{description}</p>
+          <h3 className="mb-6 text-center text-rose-gold font-sans text-[15px] font-normal leading-[100%] tracking-[2.25px] uppercase">
+            {title}
+          </h3>
+          <p className="mb-8 text-center text-white font-serif text-[40px] font-normal leading-[110%] tracking-[-0.6px]">
+            {description}
+          </p>
           {button?.link && (
             <Button variant="primary" href={extractUrl(button.link)}>
               {button.text || 'Learn More'}
