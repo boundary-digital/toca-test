@@ -43,14 +43,34 @@ export type Page = {
   sections: Section[];
 };
 
+export type TitleLine = {
+  text: string
+  alignment: 'left' | 'right'
+  divider: 'none' | 'before' | 'after'
+}
+
 type BaseSection = {
-  _type: string;
-  _key: string;
-};
+  _type: string
+  _key: string
+}
 
 type HomeHeroSection = BaseSection & {
-  _type: 'homeHeroSection';
-  backgroundImage: SanityImage;
-};
+  _type: 'homeHeroSection'
+  backgroundImage: SanityImage
+  titleLines: TitleLine[]
+}
 
-export type Section = HomeHeroSection;
+type HomeSection = BaseSection & {
+  _type: 'homeSection'
+  backgroundImage: SanityImage
+  title: string
+  description: string
+  button: {
+    text: string
+    link: SanityLink
+  }
+  desktopLayout: 'full' | 'half' | 'third'
+  order?: number
+}
+
+export type Section = HomeHeroSection | HomeSection
