@@ -19,7 +19,7 @@ export default function HomeHeroSection({
   titleLines = []
 }: HomeHeroSectionProps) {
   return (
-    <section className="relative mb-[242px] h-[840px] w-full overflow-hidden overflow-visible md:mb-[300px] md:h-[900px]">
+    <section className="relative mb-[100px] h-[700px] w-full overflow-hidden overflow-visible md:mb-[240px] md:h-[900px]">
       <SanityImageBlock
         priority
         image={backgroundImage}
