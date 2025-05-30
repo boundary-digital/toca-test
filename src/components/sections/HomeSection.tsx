@@ -1,8 +1,8 @@
-import Container from '@/components/layout/Container'
 import SanityImageBlock from '@/components/utility/SanityImageBlock'
-import { extractUrl } from '@/libs/functions'
+import { cn, extractUrl } from '@/libs/functions'
 import type { SanityImage, SanityLink } from '@/sanity/types'
 import Button from '../ui/Button'
+import GradientOverlay from '../ui/GradientOverlay'
 
 interface HomeSectionProps {
   backgroundImage: SanityImage
@@ -26,32 +26,37 @@ export default function HomeSection({
 }: HomeSectionProps) {
   return (
     <section
-      className={`
-      relative w-full min-h-[50vh] md:min-h-screen
-      col-span-12
-      ${desktopLayout === 'half' ? 'md:col-span-6' : ''}
-      ${desktopLayout === 'third' ? 'md:col-span-4' : ''}
-    `}
+      className={cn(
+        'h-[640px] lg:h-[672px] p-5 w-full rounded-lg',
+        desktopLayout === 'half' && 'md:w-1/2',
+        desktopLayout === 'third' && 'md:w-1/3'
+      )}
       style={{ order }}
     >
-      {backgroundImage && (
-        <SanityImageBlock fill image={backgroundImage} className="z-0 object-cover" />
-      )}
-      <Container className="relative z-10 flex min-h-screen flex-col items-center justify-center py-20">
-        <article className="max-w-3xl text-center">
-          <h3 className="mb-6 text-center text-rose-gold font-sans text-[15px] font-normal leading-[100%] tracking-[2.25px] uppercase">
-            {title}
-          </h3>
-          <p className="mb-8 text-center text-white font-serif text-[40px] font-normal leading-[110%] tracking-[-0.6px]">
-            {description}
-          </p>
+      <article className="relative z-10 flex h-full flex-col justify-between items-center rounded-lg overflow-hidden py-20">
+        <GradientOverlay direction="to-t" className="absolute z-10" />
+        {!!backgroundImage && (
+          <SanityImageBlock fill image={backgroundImage} className="object-cover absolute" />
+        )}
+        <div className="relative z-11 max-w-3xl text-center">
+          {!!title && (
+            <h3 className="mb-6 text-center text-rose-gold font-sans text-[15px] font-normal leading-[100%] tracking-[2.25px] uppercase">
+              {title}
+            </h3>
+          )}
+          {!!description && (
+            <p className="mb-8 text-center text-white font-serif text-[40px] font-normal leading-[110%] tracking-[-0.6px]">
+              {description}
+            </p>
+          )}
           {button?.link && (
             <Button variant="primary" href={extractUrl(button.link)}>
               {button.text || 'Learn More'}
             </Button>
           )}
-        </article>
-      </Container>
+        </div>
+        <GradientOverlay direction="to-b" className="absolute z-10" />
+      </article>
     </section>
   )
 }

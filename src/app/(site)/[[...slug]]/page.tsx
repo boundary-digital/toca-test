@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
   }
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background flex flex-wrap">
       <>
         {route.page.sections?.map((section, index) => (
           <SectionRenderer key={index} section={section} />

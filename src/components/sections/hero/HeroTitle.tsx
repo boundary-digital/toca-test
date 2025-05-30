@@ -24,7 +24,7 @@ export default function HeroTitle({ titleLines, className = '' }: HeroTitleProps
   return (
     <h1
       ref={titleRef}
-      className={`uppercase font-serif leading-none tracking-[0.1em] ${className}`}
+      className={`uppercase text-foreground font-serif leading-none tracking-[0.1em] ${className}`}
     >
       {titleLines.map((line, i) => (
         <div key={i} className={`text-${line.alignment}`}>
