@@ -21,8 +21,7 @@ export default function HomeSection({
   title,
   description,
   button,
-  desktopLayout = 'full',
-  order = 1
+  desktopLayout = 'full'
 }: HomeSectionProps) {
   return (
     <section
@@ -31,7 +30,6 @@ export default function HomeSection({
         desktopLayout === 'half' && 'md:w-1/2',
         desktopLayout === 'third' && 'md:w-1/3'
       )}
-      style={{ order }}
     >
       <article className="relative z-10 flex h-full flex-col justify-between items-center rounded-lg overflow-hidden py-20">
         <GradientOverlay direction="to-t" className="absolute z-10" />

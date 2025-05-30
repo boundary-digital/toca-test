@@ -1,4 +1,5 @@
 'use client'
+import { cn } from '@/libs/functions'
 import { useFitty } from '@/hooks'
 import { useRef } from 'react'
 
@@ -24,12 +25,12 @@ export default function HeroTitle({ titleLines, className = '' }: HeroTitleProps
   return (
     <h1
       ref={titleRef}
-      className={`uppercase text-foreground font-serif leading-none tracking-[0.1em] ${className}`}
+      className={cn('uppercase font-serif leading-none tracking-[0.1em]', className)}
     >
-      {titleLines.map((line, i) => (
-        <div key={i} className={`text-${line.alignment}`}>
+      {titleLines.map((line, i)=> (
+        <div key={i} className={cn(line.alignment === 'left' ? 'text-left' : 'text-right')}>
           {line.divider === 'before' && <span className="section-divider" />}
-          {line.text}
+          <span>{line.text}</span>
           {line.divider === 'after' && <span className="section-divider" />}
         </div>
       ))}
