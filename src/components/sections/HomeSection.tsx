@@ -26,15 +26,17 @@ export default function HomeSection({
   return (
     <section
       className={cn(
-        'h-[640px] lg:h-[672px] p-5 w-full rounded-lg',
+        'h-[640px] lg:h-[672px] p-2 w-full rounded-lg',
         desktopLayout === 'half' && 'md:w-1/2',
         desktopLayout === 'third' && 'md:w-1/3'
       )}
     >
       <article className="relative z-10 flex h-full flex-col justify-between items-center rounded-lg overflow-hidden py-20">
-        <GradientOverlay direction="to-t" className="absolute z-10" />
         {!!backgroundImage && (
-          <SanityImageBlock fill image={backgroundImage} className="object-cover absolute" />
+          <>
+            <GradientOverlay direction="to-b" className="absolute from-black/60 inset-0 z-10" />
+            <SanityImageBlock fill image={backgroundImage} className="absolute object-cover" />
+          </>
         )}
         <div className="relative z-11 max-w-3xl text-center">
           {!!title && (

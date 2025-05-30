@@ -20,12 +20,17 @@ export default function HomeHeroSection({
 }: HomeHeroSectionProps) {
   return (
     <section className="relative mb-[242px] h-[840px] w-full overflow-hidden overflow-visible md:mb-[300px] md:h-[900px]">
-      <SanityImageBlock priority image={backgroundImage} fill className="relative object-cover" />
-      <GradientOverlay />
+      <SanityImageBlock
+        priority
+        image={backgroundImage}
+        fill
+        className="relative object-cover z-0"
+      />
+      <GradientOverlay direction="to-t" className="absolute inset-0 z-10" />
 
       <HeroTitle
         titleLines={titleLines}
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 text-white"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 text-white z-15"
       />
     </section>
   )
