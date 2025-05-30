@@ -1,9 +1,11 @@
 import type { Page } from '@/sanity/types';
-import HomeHeroSection from '../sections/HomeHeroSection';
+import HomeHeroSection from '../sections/hero/HomeHeroSection'
+import HomeSection from '../sections/HomeSection'
 
 const sections = {
   homeHeroSection: HomeHeroSection,
-};
+  homeSection: HomeSection
+}
 
 export function SectionRenderer({ section }: { section: Page['sections'][number] }) {
   const { _type } = section;
