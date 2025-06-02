@@ -9,23 +9,29 @@ const homeHeroSection = defineType({
       name: 'backgroundImage',
       type: 'image',
       title: 'Background Image',
-      validation: (rule) => rule.required(),
+      validation: rule => rule.required(),
       fields: [
         {
           name: 'alt',
           title: 'Alt',
-          type: 'string',
-        },
-      ],
+          type: 'string'
+        }
+      ]
     },
+    {
+      name: 'titleLines',
+      type: 'sanityTitleLines',
+      title: 'Title Lines',
+      description: 'Add one or more lines for the hero title'
+    }
   ],
   preview: {
     prepare() {
       return {
-        title: 'Hero Section (Home)',
-      };
-    },
-  },
-});
+        title: 'Hero Section (Home)'
+      }
+    }
+  }
+})
 
 export default homeHeroSection;
